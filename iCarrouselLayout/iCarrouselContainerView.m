@@ -13,7 +13,7 @@
 #import "UICollectionViewCell+setData.h"
 
 
-const CGFloat default_scroll_interval = 4.0f;
+const CGFloat default_scroll_interval = 3.0f;
 
 
 #pragma mark - infinite type views
@@ -51,7 +51,7 @@ const CGFloat default_scroll_interval = 4.0f;
         self.pageStyle = iCarrouselPageStylePageControl;
         self.backgroundColor = [UIColor lightGrayColor];
         
-        self.scrollInterval = default_scroll_interval;
+        self.carrouselInterval = default_scroll_interval;
         self.autoCarrousel = YES;
     }
     return self;
@@ -91,21 +91,32 @@ const CGFloat default_scroll_interval = 4.0f;
 - (void)setPageStyle:(iCarrouselPageStyle)pageStyle{
     _pageStyle = pageStyle;
     switch (pageStyle) {
-        case iCarrouselPageStylePageControl:{
+        case iCarrouselPageStyleNone:{
             [_iPageLabel removeFromSuperview];
             [_iProgressView removeFromSuperview];
+            [_pageControl removeFromSuperview];
+
+            _iPageLabel = nil;
+            _iProgressView = nil;
+            _pageControl = nil;
+            
+            break;
+        }
+        case iCarrouselPageStylePageControl:{
+            [_iPageLabel removeFromSuperview];    _iPageLabel = nil;
+            [_iProgressView removeFromSuperview]; _iProgressView = nil;
             [self addSubview:self.pageControl];
             break;
         }
         case iCarrouselPageStyleProgressView:{
-            [_iPageLabel removeFromSuperview];
-            [_pageControl removeFromSuperview];
+            [_iPageLabel removeFromSuperview];  _iPageLabel = nil;
+            [_pageControl removeFromSuperview]; _pageControl = nil;
             [self addSubview:self.iProgressView];
             break;
         }
         case iCarrouselPageStyleLabel:{
-            [_iProgressView removeFromSuperview];
-            [_pageControl removeFromSuperview];
+            [_iProgressView removeFromSuperview]; _iProgressView = nil;
+            [_pageControl removeFromSuperview];   _pageControl = nil;
             [self addSubview:self.iPageLabel];
             if (self.dataArr.count) {
                 _iProgressView.pageNumber = self.dataArr.count;
@@ -185,13 +196,17 @@ const CGFloat default_scroll_interval = 4.0f;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self stopTimer];
+    [self stopCarrousel];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self startCarrousel];
 }
 
 #pragma mark - timer
 - (void)startTimer{
     if (self.dataArr.count > 1 && self.autoCarrousel) {
-        _timer = [NSTimer timerWithTimeInterval:2.0f target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+        _timer = [NSTimer timerWithTimeInterval:self.carrouselInterval target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
 }

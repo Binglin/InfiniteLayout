@@ -10,6 +10,7 @@
 
 
 typedef enum : NSUInteger {
+    iCarrouselPageStyleNone = 0,
     iCarrouselPageStylePageControl = 1,
     iCarrouselPageStyleProgressView,
     iCarrouselPageStyleLabel,
@@ -24,12 +25,16 @@ typedef void(^InfiniteCellConfiguration)(__kindof UICollectionViewCell * cell, N
 @property (nonatomic, strong) NSArray *dataArr;
 @property (nonatomic, copy  ) InfiniteCellConfiguration cellConfiguration;
 @property (nonatomic, assign) iCarrouselPageStyle pageStyle;
-@property (nonatomic, assign) CGFloat scrollInterval;
 
 //自动滚动 default YES
 @property (nonatomic, assign) BOOL autoCarrousel;
+@property (nonatomic, assign) CGFloat carrouselInterval;
+
 - (void)startCarrousel;
 - (void)stopCarrousel;
+
+
+
 
 
 @end
