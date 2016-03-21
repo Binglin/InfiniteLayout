@@ -6,14 +6,13 @@
 //  Copyright (c) 2015年 郑林琴 All rights reserved.
 //
 
-#import "InfiniteScrollFlowLayout.h"
-
-
-const CGFloat default_scroll_interval = 4.0f;
+#import "iCarrouselFlowLayout.h"
 
 
 
-@interface InfiniteScrollFlowLayout ()
+
+
+@interface iCarrouselFlowLayout ()
 
 @property (nonatomic, assign) CGFloat progress;
 
@@ -21,14 +20,13 @@ const CGFloat default_scroll_interval = 4.0f;
 @end
 
 
-@implementation InfiniteScrollFlowLayout
+@implementation iCarrouselFlowLayout
 
 - (instancetype)init{
     if (self = [super init]) {
         self.itemSize = CGSizeMake(100, 100);
         self.cacheNumber = 1;
         self.infinite = YES;
-        self.scrollInterval = default_scroll_interval;
     }
     return self;
 }
@@ -135,7 +133,7 @@ const CGFloat default_scroll_interval = 4.0f;
 
 
 
-@implementation InfiniteSectionFlowLayout
+@implementation iCarrouselSectionFlowLayout
 
 - (CGSize)itemSize{
     return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds));

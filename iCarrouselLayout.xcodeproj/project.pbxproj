@@ -14,10 +14,10 @@
 		D497CC461C8939B500C9B1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D497CC451C8939B500C9B1CC /* Assets.xcassets */; };
 		D497CC491C8939B500C9B1CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D497CC471C8939B500C9B1CC /* LaunchScreen.storyboard */; };
 		D497CC5F1C893A5500C9B1CC /* BIPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC541C893A5500C9B1CC /* BIPageControl.m */; };
-		D497CC601C893A5500C9B1CC /* BIInfiniteProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC561C893A5500C9B1CC /* BIInfiniteProgressView.m */; };
-		D497CC611C893A5500C9B1CC /* InfiniteSmallItemFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC581C893A5500C9B1CC /* InfiniteSmallItemFlowLayout.m */; };
-		D497CC621C893A5500C9B1CC /* InfiniteScrollFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5A1C893A5500C9B1CC /* InfiniteScrollFlowLayout.m */; };
-		D497CC631C893A5500C9B1CC /* InfiniteScrollContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5C1C893A5500C9B1CC /* InfiniteScrollContainerView.m */; };
+		D497CC601C893A5500C9B1CC /* iCarrouselProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC561C893A5500C9B1CC /* iCarrouselProgressView.m */; };
+		D497CC611C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC581C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m */; };
+		D497CC621C893A5500C9B1CC /* iCarrouselFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5A1C893A5500C9B1CC /* iCarrouselFlowLayout.m */; };
+		D497CC631C893A5500C9B1CC /* iCarrouselContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */; };
 		D497CC641C893A5500C9B1CC /* UICollectionViewCell+setData.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */; };
 /* End PBXBuildFile section */
 
@@ -34,14 +34,14 @@
 		D497CC4A1C8939B500C9B1CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D497CC531C893A5500C9B1CC /* BIPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIPageControl.h; sourceTree = "<group>"; };
 		D497CC541C893A5500C9B1CC /* BIPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIPageControl.m; sourceTree = "<group>"; };
-		D497CC551C893A5500C9B1CC /* BIInfiniteProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIInfiniteProgressView.h; sourceTree = "<group>"; };
-		D497CC561C893A5500C9B1CC /* BIInfiniteProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIInfiniteProgressView.m; sourceTree = "<group>"; };
-		D497CC571C893A5500C9B1CC /* InfiniteSmallItemFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteSmallItemFlowLayout.h; sourceTree = "<group>"; };
-		D497CC581C893A5500C9B1CC /* InfiniteSmallItemFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteSmallItemFlowLayout.m; sourceTree = "<group>"; };
-		D497CC591C893A5500C9B1CC /* InfiniteScrollFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollFlowLayout.h; sourceTree = "<group>"; };
-		D497CC5A1C893A5500C9B1CC /* InfiniteScrollFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollFlowLayout.m; sourceTree = "<group>"; };
-		D497CC5B1C893A5500C9B1CC /* InfiniteScrollContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollContainerView.h; sourceTree = "<group>"; };
-		D497CC5C1C893A5500C9B1CC /* InfiniteScrollContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollContainerView.m; sourceTree = "<group>"; };
+		D497CC551C893A5500C9B1CC /* iCarrouselProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarrouselProgressView.h; sourceTree = "<group>"; };
+		D497CC561C893A5500C9B1CC /* iCarrouselProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarrouselProgressView.m; sourceTree = "<group>"; };
+		D497CC571C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarrouselSmallItemFlowLayout.h; sourceTree = "<group>"; };
+		D497CC581C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarrouselSmallItemFlowLayout.m; sourceTree = "<group>"; };
+		D497CC591C893A5500C9B1CC /* iCarrouselFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarrouselFlowLayout.h; sourceTree = "<group>"; };
+		D497CC5A1C893A5500C9B1CC /* iCarrouselFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarrouselFlowLayout.m; sourceTree = "<group>"; };
+		D497CC5B1C893A5500C9B1CC /* iCarrouselContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarrouselContainerView.h; sourceTree = "<group>"; };
+		D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarrouselContainerView.m; sourceTree = "<group>"; };
 		D497CC5D1C893A5500C9B1CC /* UICollectionViewCell+setData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+setData.h"; sourceTree = "<group>"; };
 		D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+setData.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,14 +82,14 @@
 				D497CC401C8939B500C9B1CC /* ViewController.m */,
 				D497CC531C893A5500C9B1CC /* BIPageControl.h */,
 				D497CC541C893A5500C9B1CC /* BIPageControl.m */,
-				D497CC551C893A5500C9B1CC /* BIInfiniteProgressView.h */,
-				D497CC561C893A5500C9B1CC /* BIInfiniteProgressView.m */,
-				D497CC571C893A5500C9B1CC /* InfiniteSmallItemFlowLayout.h */,
-				D497CC581C893A5500C9B1CC /* InfiniteSmallItemFlowLayout.m */,
-				D497CC591C893A5500C9B1CC /* InfiniteScrollFlowLayout.h */,
-				D497CC5A1C893A5500C9B1CC /* InfiniteScrollFlowLayout.m */,
-				D497CC5B1C893A5500C9B1CC /* InfiniteScrollContainerView.h */,
-				D497CC5C1C893A5500C9B1CC /* InfiniteScrollContainerView.m */,
+				D497CC551C893A5500C9B1CC /* iCarrouselProgressView.h */,
+				D497CC561C893A5500C9B1CC /* iCarrouselProgressView.m */,
+				D497CC571C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.h */,
+				D497CC581C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m */,
+				D497CC591C893A5500C9B1CC /* iCarrouselFlowLayout.h */,
+				D497CC5A1C893A5500C9B1CC /* iCarrouselFlowLayout.m */,
+				D497CC5B1C893A5500C9B1CC /* iCarrouselContainerView.h */,
+				D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */,
 				D497CC5D1C893A5500C9B1CC /* UICollectionViewCell+setData.h */,
 				D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */,
 				D497CC421C8939B500C9B1CC /* Main.storyboard */,
@@ -183,10 +183,10 @@
 				D497CC411C8939B500C9B1CC /* ViewController.m in Sources */,
 				D497CC3E1C8939B500C9B1CC /* AppDelegate.m in Sources */,
 				D497CC3B1C8939B500C9B1CC /* main.m in Sources */,
-				D497CC631C893A5500C9B1CC /* InfiniteScrollContainerView.m in Sources */,
-				D497CC601C893A5500C9B1CC /* BIInfiniteProgressView.m in Sources */,
-				D497CC611C893A5500C9B1CC /* InfiniteSmallItemFlowLayout.m in Sources */,
-				D497CC621C893A5500C9B1CC /* InfiniteScrollFlowLayout.m in Sources */,
+				D497CC631C893A5500C9B1CC /* iCarrouselContainerView.m in Sources */,
+				D497CC601C893A5500C9B1CC /* iCarrouselProgressView.m in Sources */,
+				D497CC611C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m in Sources */,
+				D497CC621C893A5500C9B1CC /* iCarrouselFlowLayout.m in Sources */,
 				D497CC5F1C893A5500C9B1CC /* BIPageControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iCarrouselLayout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Binglin.iCarrouselLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -311,6 +312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iCarrouselLayout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Binglin.iCarrouselLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -336,6 +338,7 @@
 				D497CC4F1C8939B500C9B1CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

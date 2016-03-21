@@ -1,5 +1,5 @@
 //
-//  InfiniteScrollFlowLayout.h
+//  
 //  
 //
 //  Created by 郑林琴 on 15/6/21.
@@ -10,7 +10,7 @@
 
 
 //section == 1
-@interface InfiniteScrollFlowLayout : UICollectionViewLayout//UICollectionViewFlowLayout
+@interface iCarrouselFlowLayout : UICollectionViewLayout//UICollectionViewFlowLayout
 
 @property (nonatomic, assign) CGSize itemSize;
 
@@ -19,10 +19,6 @@
 
 //是否需要循环滚动
 @property (nonatomic, assign) BOOL infinite;
-
-//default is default_scroll_interval
-@property (nonatomic, assign) CGFloat scrollInterval;
-
 
 @property (nonatomic, assign) NSUInteger currentPage;
 @property (nonatomic, assign,readonly) CGFloat progress;
@@ -36,7 +32,7 @@
 
 
 //一个section为一屏
-@interface InfiniteSectionFlowLayout : InfiniteScrollFlowLayout
+@interface iCarrouselSectionFlowLayout : iCarrouselFlowLayout
 
 @end
 

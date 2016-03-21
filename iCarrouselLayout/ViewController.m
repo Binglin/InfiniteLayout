@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "InfiniteScrollContainerView.h"
-#import "BIInfiniteProgressView.h"
+#import "iCarrouselContainerView.h"
+#import "iCarrouselProgressView.h"
 
 @interface ViewController ()
 
@@ -20,13 +20,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    InfiniteScrollContainerView *scroll = [[InfiniteScrollContainerView alloc] initWithFrame:CGRectMake(0, 10, 320, 160)];
-    scroll.dataArr = @[@"http://huaban.com/go/?pin_id=598248676",
+    iCarrouselContainerView *scroll = [[iCarrouselContainerView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];
+   NSArray *arr = @[@"http://huaban.com/go/?pin_id=598248676",
                        @"http://huaban.com/go/?pin_id=598248865",
                        @"http://huaban.com/go/?pin_id=598248999",
-                       @"http://huaban.com/go/?pin_id=598249074",
+//                       @"http://huaban.com/go/?pin_id=598249074",
                        @"http://huaban.com/go/?pin_id=598249234"];
+    scroll.pageStyle = iCarrouselPageStyleLabel;
+    scroll.dataArr = arr;
     
+    scroll.cellConfiguration = ^(iCarrouselImageCollectionViewCell *cell, NSIndexPath *index){
+        cell.infiniteImageView.image = nil;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:arr[index.section]]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.infiniteImageView.image = image;
+            });
+        });
+    };
     [self.view addSubview:scroll];
     
 //    InfiniteScrollView *infinite = [[InfiniteScrollView alloc] initWithFrame:CGRectMake(0, 150, 320, 100)];

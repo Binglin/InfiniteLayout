@@ -1,14 +1,14 @@
 //
 //  InfiniteSmallItemFlowLayout.m
-//  BLExampleWorkspace
+//  
 //
 //  Created by 郑林琴 on 15/6/28.
 //  Copyright (c) 2015年 Binglin All rights reserved.
 //
 
-#import "InfiniteSmallItemFlowLayout.h"
+#import "iCarrouselSmallItemFlowLayout.h"
 
-@implementation InfiniteSmallItemFlowLayout
+@implementation iCarrouselSmallItemFlowLayout
 
 
 - (CGSize)collectionViewContentSize{

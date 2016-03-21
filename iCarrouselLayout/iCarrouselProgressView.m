@@ -1,14 +1,14 @@
 //
 //  BIInfiniteProgressView.m
-//  BLExampleWorkspace
+//  
 //
 //  Created by Zhenglinqin on 15/6/25.
 //  Copyright (c) 2015年 Binglin All rights reserved.
 //
 
-#import "BIInfiniteProgressView.h"
+#import "iCarrouselProgressView.h"
 
-@interface BIInfiniteProgressView (){
+@interface iCarrouselProgressView (){
     UIView *_indicator;
     UIView *_tempIndicator;
     
@@ -19,22 +19,27 @@
 
 @end
 
-@implementation BIInfiniteProgressView
+@implementation iCarrouselProgressView
 
 - (instancetype)initWithFrame:(CGRect)frame{
+    
+    if (frame.size.height > 4.0) {
+        frame.size.height = 4.0;
+    }
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor grayColor];
         
-        _indicator = [[UIView alloc] initWithFrame:CGRectMake(0, 18, CGRectGetWidth(self.bounds), 4.f)];
+        _indicator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 4.f)];
         _indicator.backgroundColor = [UIColor redColor];
         
-        _tempIndicator = [[UIView alloc] initWithFrame:CGRectMake(0, 18, 0, 4.f)];
+        _tempIndicator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 4.f)];
         _tempIndicator.backgroundColor = [UIColor redColor];
         
         [self addSubview:_indicator];
         [self addSubview:_tempIndicator];
         
         _indicator.layer.cornerRadius = 2.f;
+        self.layer.cornerRadius = 2.0;
         _indicator.layer.masksToBounds = YES;
         _tempIndicator.layer.cornerRadius = 2.f;
         _tempIndicator.layer.masksToBounds = YES;
@@ -49,6 +54,7 @@
     }
     return self;
 }
+
 
 - (void)setPageNumber:(NSInteger)pageNumber{
     _pageNumber = pageNumber;
