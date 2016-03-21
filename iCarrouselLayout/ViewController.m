@@ -10,7 +10,12 @@
 #import "iCarrouselContainerView.h"
 #import "iCarrouselProgressView.h"
 
+#import "BIImageBrowserViewController.h"
+#import "BIImageBrowserTransition.h"
+
 @interface ViewController ()
+
+@property (nonatomic, strong) BIImageBrowserTransition *transition;
 
 @end
 
@@ -19,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.transition = [BIImageBrowserTransition new];
     
     iCarrouselContainerView *scroll = [[iCarrouselContainerView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];
    NSArray *arr = @[@"http://huaban.com/go/?pin_id=598248676",
@@ -40,15 +47,14 @@
     };
     [self.view addSubview:scroll];
     
-//    InfiniteScrollView *infinite = [[InfiniteScrollView alloc] initWithFrame:CGRectMake(0, 150, 320, 100)];
-//    [self.view addSubview:infinite];
-//    
-//    infinite.dataArr = scroll.dataArr;
-//    
-//    SmallItemScrollView *smallItem = [[SmallItemScrollView alloc] initWithFrame:CGRectMake(0, 280.f, 320, 150)];
-//    smallItem.dataArr = scroll.dataArr;
-//    [self.view addSubview:smallItem];
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)tap{
+    BIImageBrowserViewController *iBrowser = [[BIImageBrowserViewController alloc] init];
+    iBrowser.transitioningDelegate = self.transition;
+    [iBrowser showFromViewController:self];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40723841C9FC66B00D7E0E4 /* BIImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40723831C9FC66B00D7E0E4 /* BIImageBrowserViewController.m */; };
+		D40723871C9FC85A00D7E0E4 /* BIImageBrowserTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D40723861C9FC85A00D7E0E4 /* BIImageBrowserTransition.m */; };
 		D497CC3B1C8939B500C9B1CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC3A1C8939B500C9B1CC /* main.m */; };
 		D497CC3E1C8939B500C9B1CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC3D1C8939B500C9B1CC /* AppDelegate.m */; };
 		D497CC411C8939B500C9B1CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC401C8939B500C9B1CC /* ViewController.m */; };
@@ -22,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D40723821C9FC66B00D7E0E4 /* BIImageBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIImageBrowserViewController.h; sourceTree = "<group>"; };
+		D40723831C9FC66B00D7E0E4 /* BIImageBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIImageBrowserViewController.m; sourceTree = "<group>"; };
+		D40723851C9FC85A00D7E0E4 /* BIImageBrowserTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIImageBrowserTransition.h; sourceTree = "<group>"; };
+		D40723861C9FC85A00D7E0E4 /* BIImageBrowserTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIImageBrowserTransition.m; sourceTree = "<group>"; };
 		D497CC361C8939B500C9B1CC /* iCarrouselLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCarrouselLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D497CC3A1C8939B500C9B1CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D497CC3C1C8939B500C9B1CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D40723811C9FC65000D7E0E4 /* BIImageBrowserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D40723821C9FC66B00D7E0E4 /* BIImageBrowserViewController.h */,
+				D40723831C9FC66B00D7E0E4 /* BIImageBrowserViewController.m */,
+				D40723851C9FC85A00D7E0E4 /* BIImageBrowserTransition.h */,
+				D40723861C9FC85A00D7E0E4 /* BIImageBrowserTransition.m */,
+			);
+			path = BIImageBrowserViewController;
+			sourceTree = "<group>";
+		};
 		D497CC2D1C8939B500C9B1CC = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +93,7 @@
 		D497CC381C8939B500C9B1CC /* iCarrouselLayout */ = {
 			isa = PBXGroup;
 			children = (
+				D40723811C9FC65000D7E0E4 /* BIImageBrowserViewController */,
 				D497CC3C1C8939B500C9B1CC /* AppDelegate.h */,
 				D497CC3D1C8939B500C9B1CC /* AppDelegate.m */,
 				D497CC3F1C8939B500C9B1CC /* ViewController.h */,
@@ -179,10 +197,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40723841C9FC66B00D7E0E4 /* BIImageBrowserViewController.m in Sources */,
 				D497CC641C893A5500C9B1CC /* UICollectionViewCell+setData.m in Sources */,
 				D497CC411C8939B500C9B1CC /* ViewController.m in Sources */,
 				D497CC3E1C8939B500C9B1CC /* AppDelegate.m in Sources */,
 				D497CC3B1C8939B500C9B1CC /* main.m in Sources */,
+				D40723871C9FC85A00D7E0E4 /* BIImageBrowserTransition.m in Sources */,
 				D497CC631C893A5500C9B1CC /* iCarrouselContainerView.m in Sources */,
 				D497CC601C893A5500C9B1CC /* iCarrouselProgressView.m in Sources */,
 				D497CC611C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m in Sources */,
