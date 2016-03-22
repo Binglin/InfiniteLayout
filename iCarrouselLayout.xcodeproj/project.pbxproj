@@ -21,6 +21,7 @@
 		D497CC621C893A5500C9B1CC /* iCarrouselFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5A1C893A5500C9B1CC /* iCarrouselFlowLayout.m */; };
 		D497CC631C893A5500C9B1CC /* iCarrouselContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */; };
 		D497CC641C893A5500C9B1CC /* UICollectionViewCell+setData.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */; };
+		D4B98BBD1CA150B60064A2B9 /* LatticeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B98BBC1CA150B60064A2B9 /* LatticeLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarrouselContainerView.m; sourceTree = "<group>"; };
 		D497CC5D1C893A5500C9B1CC /* UICollectionViewCell+setData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+setData.h"; sourceTree = "<group>"; };
 		D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+setData.m"; sourceTree = "<group>"; };
+		D4B98BBB1CA150B60064A2B9 /* LatticeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatticeLayout.h; sourceTree = "<group>"; };
+		D4B98BBC1CA150B60064A2B9 /* LatticeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatticeLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				D40723831C9FC66B00D7E0E4 /* BIImageBrowserViewController.m */,
 				D40723851C9FC85A00D7E0E4 /* BIImageBrowserTransition.h */,
 				D40723861C9FC85A00D7E0E4 /* BIImageBrowserTransition.m */,
+				D4B98BBB1CA150B60064A2B9 /* LatticeLayout.h */,
+				D4B98BBC1CA150B60064A2B9 /* LatticeLayout.m */,
 			);
 			path = BIImageBrowserViewController;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			files = (
 				D40723841C9FC66B00D7E0E4 /* BIImageBrowserViewController.m in Sources */,
 				D497CC641C893A5500C9B1CC /* UICollectionViewCell+setData.m in Sources */,
+				D4B98BBD1CA150B60064A2B9 /* LatticeLayout.m in Sources */,
 				D497CC411C8939B500C9B1CC /* ViewController.m in Sources */,
 				D497CC3E1C8939B500C9B1CC /* AppDelegate.m in Sources */,
 				D497CC3B1C8939B500C9B1CC /* main.m in Sources */,
