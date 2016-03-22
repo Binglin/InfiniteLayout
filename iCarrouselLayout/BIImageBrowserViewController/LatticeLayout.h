@@ -13,6 +13,8 @@
 
 @interface LatticeLayout : UICollectionViewLayout
 
++ (CGFloat)heightForCount:(NSInteger)count;
+
 @property (nonatomic, assign) NSInteger totalCount;
 
 @end

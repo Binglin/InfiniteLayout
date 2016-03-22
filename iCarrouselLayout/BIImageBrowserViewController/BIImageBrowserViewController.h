@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "iCarrouselContainerView.h"
+#import "iCarrouselFlowLayout.h"
+
 @interface BIImageBrowserViewController : UIViewController
 
 @property (nonatomic, strong) UICollectionViewLayout *sourceLayout;
+@property (nonatomic, assign) NSIndexPath *selectIndexPath;
 @property (nonatomic, strong) NSArray *imageArr;
 
 - (void)showFromViewController:(UIViewController *)controller;
@@ -21,12 +25,16 @@
 
 
 
-@interface BIImageBrowserLayout : UICollectionViewFlowLayout
+@interface BIImageBrowserLayout : iCarrouselFlowLayout
+
+@property (nonatomic, assign) NSIndexPath *selectIndexPath;
+@property (nonatomic, strong) UICollectionViewLayout *sourceLayout;
+@property (nonatomic, assign) BOOL show;
 
 @end
 
 
 
-@interface BIImageBrowserCollectionCell : UICollectionViewCell
+@interface BIImageBrowserContainerView : iCarrouselContainerView
 
 @end

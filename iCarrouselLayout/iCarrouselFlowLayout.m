@@ -99,7 +99,7 @@
     CGFloat targetX    = self.collectionView.contentOffset.x;
     CGFloat item_width = self.collectionView.frame.size.width;
     
-    _currentPage = (int)(targetX/item_width) % numCount;
+    self.currentPage = (int)(targetX/item_width) % numCount;
     
     CGFloat maxOffset = (self.collectionView.contentSize.width - item_width * self.cacheNumber);
     
@@ -117,7 +117,7 @@
     
     self.progress = fmod(targetX, maxOffset)/(maxOffset);
     
-//    NSLog(@"%f",self.progress);
+//    NSLog(@"page====   %d",self.currentPage);
 
 //    self.progress = fmod(fmod(targetX,  maxOffset)/(maxOffset-item_width), 1.0f+0.001f);
 }

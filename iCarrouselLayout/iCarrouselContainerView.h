@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
+
 typedef enum : NSUInteger {
     iCarrouselPageStyleNone = 0,
     iCarrouselPageStylePageControl = 1,
@@ -22,6 +23,13 @@ typedef void(^InfiniteCellConfiguration)(__kindof UICollectionViewCell * cell, N
 
 @interface iCarrouselContainerView : UIView
 
+
+//@override
+- (void)initFlowLayout;
+- (void)setLayout:(UICollectionViewLayout *)layout;
+- (UICollectionViewLayout *)layout;
+- (UICollectionView *)collectionView;
+
 @property (nonatomic, strong) NSArray *dataArr;
 @property (nonatomic, copy  ) InfiniteCellConfiguration cellConfiguration;
 @property (nonatomic, assign) iCarrouselPageStyle pageStyle;
@@ -29,6 +37,8 @@ typedef void(^InfiniteCellConfiguration)(__kindof UICollectionViewCell * cell, N
 //自动滚动 default YES
 @property (nonatomic, assign) BOOL autoCarrousel;
 @property (nonatomic, assign) CGFloat carrouselInterval;
+
+- (void)showPage:(NSInteger)page animate:(BOOL)animate;
 
 - (void)startCarrousel;
 - (void)stopCarrousel;

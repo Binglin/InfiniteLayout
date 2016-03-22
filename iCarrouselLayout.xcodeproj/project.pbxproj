@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45D2A9A01CA16D1700A465C4 /* LatticesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D2A99F1CA16D1700A465C4 /* LatticesTableViewCell.m */; };
+		B9A0396D3081DF1C592B7F2D /* libPods-iCarrouselLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB82EBB63FF354F69B20B405 /* libPods-iCarrouselLayout.a */; };
 		D40723841C9FC66B00D7E0E4 /* BIImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40723831C9FC66B00D7E0E4 /* BIImageBrowserViewController.m */; };
 		D40723871C9FC85A00D7E0E4 /* BIImageBrowserTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D40723861C9FC85A00D7E0E4 /* BIImageBrowserTransition.m */; };
 		D497CC3B1C8939B500C9B1CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC3A1C8939B500C9B1CC /* main.m */; };
@@ -25,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32F6B71D1474F9819C7D3677 /* Pods-iCarrouselLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCarrouselLayout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCarrouselLayout/Pods-iCarrouselLayout.debug.xcconfig"; sourceTree = "<group>"; };
+		45D2A99E1CA16D1700A465C4 /* LatticesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatticesTableViewCell.h; sourceTree = "<group>"; };
+		45D2A99F1CA16D1700A465C4 /* LatticesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatticesTableViewCell.m; sourceTree = "<group>"; };
+		BB82EBB63FF354F69B20B405 /* libPods-iCarrouselLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCarrouselLayout.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3B91DA18B300C1B5D42C7DE /* Pods-iCarrouselLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCarrouselLayout.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCarrouselLayout/Pods-iCarrouselLayout.release.xcconfig"; sourceTree = "<group>"; };
 		D40723821C9FC66B00D7E0E4 /* BIImageBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIImageBrowserViewController.h; sourceTree = "<group>"; };
 		D40723831C9FC66B00D7E0E4 /* BIImageBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIImageBrowserViewController.m; sourceTree = "<group>"; };
 		D40723851C9FC85A00D7E0E4 /* BIImageBrowserTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIImageBrowserTransition.h; sourceTree = "<group>"; };
@@ -60,12 +67,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A0396D3081DF1C592B7F2D /* libPods-iCarrouselLayout.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		136216DC2E187390C9C36139 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32F6B71D1474F9819C7D3677 /* Pods-iCarrouselLayout.debug.xcconfig */,
+				D3B91DA18B300C1B5D42C7DE /* Pods-iCarrouselLayout.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3B9009520335BB677EF9D7AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB82EBB63FF354F69B20B405 /* libPods-iCarrouselLayout.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D40723811C9FC65000D7E0E4 /* BIImageBrowserViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +109,8 @@
 			children = (
 				D497CC381C8939B500C9B1CC /* iCarrouselLayout */,
 				D497CC371C8939B500C9B1CC /* Products */,
+				136216DC2E187390C9C36139 /* Pods */,
+				3B9009520335BB677EF9D7AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +128,8 @@
 				D40723811C9FC65000D7E0E4 /* BIImageBrowserViewController */,
 				D497CC3C1C8939B500C9B1CC /* AppDelegate.h */,
 				D497CC3D1C8939B500C9B1CC /* AppDelegate.m */,
+				45D2A99E1CA16D1700A465C4 /* LatticesTableViewCell.h */,
+				45D2A99F1CA16D1700A465C4 /* LatticesTableViewCell.m */,
 				D497CC3F1C8939B500C9B1CC /* ViewController.h */,
 				D497CC401C8939B500C9B1CC /* ViewController.m */,
 				D497CC531C893A5500C9B1CC /* BIPageControl.h */,
@@ -139,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D497CC4D1C8939B500C9B1CC /* Build configuration list for PBXNativeTarget "iCarrouselLayout" */;
 			buildPhases = (
+				EF9D699FFF69E47769B68443 /* Check Pods Manifest.lock */,
 				D497CC321C8939B500C9B1CC /* Sources */,
 				D497CC331C8939B500C9B1CC /* Frameworks */,
 				D497CC341C8939B500C9B1CC /* Resources */,
+				CE0EC3C1B64A303DC192CC2D /* Embed Pods Frameworks */,
+				9706D8B45D6073969CA27C3D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,6 +229,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9706D8B45D6073969CA27C3D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCarrouselLayout/Pods-iCarrouselLayout-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE0EC3C1B64A303DC192CC2D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iCarrouselLayout/Pods-iCarrouselLayout-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF9D699FFF69E47769B68443 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D497CC321C8939B500C9B1CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -214,6 +294,7 @@
 				D497CC611C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m in Sources */,
 				D497CC621C893A5500C9B1CC /* iCarrouselFlowLayout.m in Sources */,
 				D497CC5F1C893A5500C9B1CC /* BIPageControl.m in Sources */,
+				45D2A9A01CA16D1700A465C4 /* LatticesTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +404,7 @@
 		};
 		D497CC4E1C8939B500C9B1CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32F6B71D1474F9819C7D3677 /* Pods-iCarrouselLayout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iCarrouselLayout/Info.plist;
@@ -335,6 +417,7 @@
 		};
 		D497CC4F1C8939B500C9B1CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3B91DA18B300C1B5D42C7DE /* Pods-iCarrouselLayout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iCarrouselLayout/Info.plist;

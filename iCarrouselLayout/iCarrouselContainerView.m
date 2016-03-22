@@ -24,7 +24,7 @@ const CGFloat default_scroll_interval = 3.0f;
     NSTimer *_timer;
 }
 
-- (void)initFlowLayout;
+
 
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) iCarrouselProgressView *iProgressView;
@@ -34,6 +34,10 @@ const CGFloat default_scroll_interval = 3.0f;
 @end
 
 @implementation iCarrouselContainerView
+
+- (UICollectionView *)collectionView{
+    return _scrollContainer;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -148,6 +152,14 @@ const CGFloat default_scroll_interval = 3.0f;
         size;});
 }
 
+- (void)setLayout:(UICollectionViewLayout *)layout{
+    _infiniteFlowLayout = (iCarrouselFlowLayout *)layout;
+}
+
+- (UICollectionViewLayout *)layout{
+    return _infiniteFlowLayout;
+}
+
 - (void)didMoveToSuperview{
     [super didMoveToSuperview];
     [self startCarrousel];
@@ -188,11 +200,13 @@ const CGFloat default_scroll_interval = 3.0f;
 
 #pragma mark - UIScrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
     iCarrouselFlowLayout *infiniteFlowLayout = (iCarrouselFlowLayout *)_scrollContainer.collectionViewLayout;
     [infiniteFlowLayout scrollViewDidScroll];
-     _pageControl.currentPage = _infiniteFlowLayout.currentPage;
-    _iPageLabel.text = [NSString stringWithFormat:@"%ld/%ld",_infiniteFlowLayout.currentPage + 1, self.dataArr.count];
-    _iProgressView.progress = _infiniteFlowLayout.progress;
+    
+     _pageControl.currentPage = infiniteFlowLayout.currentPage;
+    _iPageLabel.text = [NSString stringWithFormat:@"%ld/%ld",infiniteFlowLayout.currentPage + 1, self.dataArr.count];
+    _iProgressView.progress = infiniteFlowLayout.progress;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -218,6 +232,11 @@ const CGFloat default_scroll_interval = 3.0f;
 
 - (void)nextPage{
     [_scrollContainer setContentOffset:CGPointMake(_scrollContainer.contentOffset.x + CGRectGetWidth(self.bounds), _scrollContainer.contentOffset.y) animated:YES];
+}
+
+- (void)showPage:(NSInteger)page animate:(BOOL)animate{
+    [_scrollContainer setContentOffset:CGPointMake(_scrollContainer.contentOffset.x + CGRectGetWidth(self.bounds) * (page - _infiniteFlowLayout.currentPage), _scrollContainer.contentOffset.y) animated:animate];
+    
 }
 
 - (void)startCarrousel{
