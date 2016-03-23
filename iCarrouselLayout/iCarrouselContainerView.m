@@ -42,7 +42,7 @@ const CGFloat default_scroll_interval = 3.0f;
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self initFlowLayout];
-        _scrollContainer = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:_infiniteFlowLayout];
+        _scrollContainer = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.infiniteFlowLayout];
         _scrollContainer.backgroundColor = [UIColor clearColor];
         _scrollContainer.dataSource = self;
         _scrollContainer.delegate   = self;
@@ -56,7 +56,7 @@ const CGFloat default_scroll_interval = 3.0f;
         self.backgroundColor = [UIColor lightGrayColor];
         
         self.carrouselInterval = default_scroll_interval;
-        self.autoCarrousel = YES;
+//        self.autoCarrousel = YES;
     }
     return self;
 }
@@ -153,11 +153,11 @@ const CGFloat default_scroll_interval = 3.0f;
 }
 
 - (void)setLayout:(UICollectionViewLayout *)layout{
-    _infiniteFlowLayout = (iCarrouselFlowLayout *)layout;
+    self.infiniteFlowLayout = (iCarrouselFlowLayout *)layout;
 }
 
 - (UICollectionViewLayout *)layout{
-    return _infiniteFlowLayout;
+    return self.infiniteFlowLayout;
 }
 
 - (void)didMoveToSuperview{
@@ -171,7 +171,8 @@ const CGFloat default_scroll_interval = 3.0f;
 
 #pragma mark - data
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    iCarrouselImageCollectionViewCell *collectCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([iCarrouselImageCollectionViewCell class]) forIndexPath:indexPath];
+    
+    iCarrouselImageCollectionViewCell *collectCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     if (self.cellConfiguration) {
         self.cellConfiguration(collectCell, indexPath);
@@ -201,7 +202,7 @@ const CGFloat default_scroll_interval = 3.0f;
 #pragma mark - UIScrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    iCarrouselFlowLayout *infiniteFlowLayout = (iCarrouselFlowLayout *)_scrollContainer.collectionViewLayout;
+    iCarrouselFlowLayout *infiniteFlowLayout = self.infiniteFlowLayout;//(iCarrouselFlowLayout *)_scrollContainer.collectionViewLayout;
     [infiniteFlowLayout scrollViewDidScroll];
     
      _pageControl.currentPage = infiniteFlowLayout.currentPage;
@@ -311,10 +312,9 @@ const CGFloat default_scroll_interval = 3.0f;
 
 -  (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        
         self.infiniteImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         [self.contentView addSubview:self.infiniteImageView];
-
+    
     }
     return self;
 }

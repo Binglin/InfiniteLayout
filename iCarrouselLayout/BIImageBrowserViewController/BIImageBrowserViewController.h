@@ -31,10 +31,21 @@
 @property (nonatomic, strong) UICollectionViewLayout *sourceLayout;
 @property (nonatomic, assign) BOOL show;
 
+- (void)animateIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 
 
 @interface BIImageBrowserContainerView : iCarrouselContainerView
+
+@end
+
+
+
+@interface BIImageBrowserCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) UIImageView *imageView;
+- (void)animateScaleImage;
 
 @end

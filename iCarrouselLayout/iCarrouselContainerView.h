@@ -29,12 +29,13 @@ typedef void(^InfiniteCellConfiguration)(__kindof UICollectionViewCell * cell, N
 - (void)setLayout:(UICollectionViewLayout *)layout;
 - (UICollectionViewLayout *)layout;
 - (UICollectionView *)collectionView;
+- (void)registerCollectionCells;
 
 @property (nonatomic, strong) NSArray *dataArr;
 @property (nonatomic, copy  ) InfiniteCellConfiguration cellConfiguration;
 @property (nonatomic, assign) iCarrouselPageStyle pageStyle;
 
-//自动滚动 default YES
+//自动滚动 default NO
 @property (nonatomic, assign) BOOL autoCarrousel;
 @property (nonatomic, assign) CGFloat carrouselInterval;
 

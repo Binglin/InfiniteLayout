@@ -22,11 +22,13 @@
 - (iCarrouselContainerView *)containerView{
     if (!_containerView) {
         _containerView = [[BIImageBrowserContainerView alloc] initWithFrame:self.view.bounds];
+        
         __weak BIImageBrowserViewController *_weak_self = self;
-        [_containerView setLayout:[BIImageBrowserLayout new]];
-        _containerView.cellConfiguration = ^(iCarrouselImageCollectionViewCell * cell, NSIndexPath *indexPath){
+        _containerView.cellConfiguration = ^(BIImageBrowserCollectionViewCell * cell, NSIndexPath *indexPath){
             __strong BIImageBrowserViewController *self = _weak_self;
-            [cell.infiniteImageView sd_setImageWithURL:[NSURL URLWithString:self.imageArr[indexPath.section]]];
+            cell.imageView.contentMode = UIViewContentModeCenter;
+            cell.imageView.backgroundColor = [UIColor yellowColor];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageArr[indexPath.section]]];
         };
     }
     return _containerView;
@@ -40,23 +42,23 @@
     [self.view addSubview:self.containerView];
     self.containerView.dataArr = self.imageArr;
     
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)]];
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTaped:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:doubleTap];
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    [tap requireGestureRecognizerToFail:doubleTap];
+    [self.view addGestureRecognizer:tap];
     
     BIImageBrowserLayout *layout = (BIImageBrowserLayout *)self.containerView.layout;
     layout.selectIndexPath = [NSIndexPath indexPathForRow:0 inSection:self.selectIndexPath.row];
     layout.sourceLayout    = self.sourceLayout;
-    
-    
-    layout.show = YES;
-//    [self.containerView.collectionView performBatchUpdates:^{
-//        [self.containerView.collectionView reloadItemsAtIndexPaths:@[layout.selectIndexPath]];
-//    } completion:nil];
+    [self.containerView.collectionView reloadData];
     
     [self.containerView showPage:self.selectIndexPath.row animate:TRUE];
 
 }
-
-
 
 - (void)showFromViewController:(UIViewController *)controller{
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -73,6 +75,17 @@
 #pragma mark - action
 - (void)tapped:(UITapGestureRecognizer *)tap{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)doubleTaped:(UITapGestureRecognizer *)tap{
+    
+//    NSLog(@"%d",tap.numberOfTapsRequired);
+//    
+//    return;
+    
+    NSIndexPath *indexPath = [self.containerView.collectionView indexPathForItemAtPoint:[tap locationInView:self.containerView]];
+    BIImageBrowserCollectionViewCell *cell = (BIImageBrowserCollectionViewCell *)[self.containerView.collectionView cellForItemAtIndexPath:indexPath];
+    [cell animateScaleImage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,19 +108,26 @@
 
 @implementation BIImageBrowserLayout
 
-- (nullable UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    UICollectionViewLayoutAttributes *attri = [super layoutAttributesForItemAtIndexPath:indexPath];
-    if ([indexPath isEqual:self.selectIndexPath]) {
+- (void)animateIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == self.selectIndexPath.section) {
         //animate
-        CGRect frame = [self.sourceLayout layoutAttributesForItemAtIndexPath:indexPath].frame;
-        [self.sourceLayout.collectionView convertRect:frame toView:self.collectionView];
-        if (self.show == NO) {
-            attri.frame = frame;
-        }
+        CGRect frame = [self.sourceLayout layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:indexPath.section inSection:0]].frame;
+        CGRect convertF = [self.sourceLayout.collectionView convertRect:frame toView:[UIApplication sharedApplication].keyWindow];
+        
+        CGRect originFrame = [self layoutAttributesForItemAtIndexPath:indexPath].frame;
+        
+        BIImageBrowserCollectionViewCell *cell = (BIImageBrowserCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        
+        CGFloat left = CGRectGetMinX(originFrame) - fmod(CGRectGetMinX(originFrame), CGRectGetWidth(self.collectionView.frame)) + CGRectGetMinX(convertF) - CGRectGetMinX(self.collectionView.frame);
+        
+        cell.frame = CGRectMake(left, CGRectGetMinY(convertF), convertF.size.width, convertF.size.height);
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            cell.frame = originFrame;
+        }];
     }
-    return attri;
 }
-
 
 @end
 
@@ -115,19 +135,79 @@
 
 @implementation BIImageBrowserContainerView
 
+//- (instancetype)initWithFrame:(CGRect)frame{
+//    if (self = [super initWithFrame:frame]) {
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTaped:)];
+//        tap.numberOfTapsRequired = 2;
+//        [self addGestureRecognizer:tap];
+//    }
+//    return self;
+//}
+//
+//- (void)doubleTaped:(UITapGestureRecognizer *)tap{
+//    
+//}
+
 - (void)initFlowLayout{
     BIImageBrowserLayout *layout = [BIImageBrowserLayout new];
+    layout.itemSize = [UIScreen mainScreen].bounds.size;
     [self setLayout:layout];
+}
+
+- (void)registerCollectionCells{
+    [self.collectionView registerClass:[BIImageBrowserCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 }
 
 @end
 
-//@implementation BIImageBrowserCollectionCell
-//
-//- (void)setItem:(NSString *)urlStr{
-//    self
-//}
 
-//@end
+@interface BIImageBrowserCollectionViewCell ()<UIScrollViewDelegate>
+
+@property (nonatomic, strong) UIScrollView *scaleView;
+
+@end
+
+@implementation BIImageBrowserCollectionViewCell
+
+-  (instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        
+        self.scaleView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        self.scaleView.delegate = self;
+        self.scaleView.maximumZoomScale = 2.0;
+        self.scaleView.showsHorizontalScrollIndicator = false;
+        self.scaleView.showsVerticalScrollIndicator = false;
+        
+        [self.contentView addSubview:self.scaleView];
+        
+        self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self.scaleView addSubview:self.imageView];
+        
+        self.contentView.backgroundColor = [UIColor orangeColor];
+        
+    }
+    return self;
+}
+
+// zoomRect
+- (void)animateScaleImage{
+    if (self.scaleView.zoomScale > 1.0) {
+        [self.scaleView setZoomScale:1.0 animated:YES];
+    }else{
+        [self.scaleView setZoomScale: 2.0 animated:YES];
+    }
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.imageView.frame = self.bounds;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return self.imageView;
+}
+
+@end
 
 
