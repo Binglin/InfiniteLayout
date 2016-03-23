@@ -24,6 +24,10 @@
 		D497CC631C893A5500C9B1CC /* iCarrouselContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */; };
 		D497CC641C893A5500C9B1CC /* UICollectionViewCell+setData.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */; };
 		D4B98BBD1CA150B60064A2B9 /* LatticeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B98BBC1CA150B60064A2B9 /* LatticeLayout.m */; };
+		D4DC94471CA288FC002C3A53 /* BIActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC94421CA288FC002C3A53 /* BIActivityViewController.m */; };
+		D4DC94481CA288FC002C3A53 /* BIAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC94441CA288FC002C3A53 /* BIAlertViewController.m */; };
+		D4DC94491CA288FC002C3A53 /* BIDimmerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC94461CA288FC002C3A53 /* BIDimmerViewController.m */; };
+		D4DC944C1CA2891C002C3A53 /* UIButton+setStateBackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC944B1CA2891C002C3A53 /* UIButton+setStateBackgroundColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,14 @@
 		D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+setData.m"; sourceTree = "<group>"; };
 		D4B98BBB1CA150B60064A2B9 /* LatticeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatticeLayout.h; sourceTree = "<group>"; };
 		D4B98BBC1CA150B60064A2B9 /* LatticeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatticeLayout.m; sourceTree = "<group>"; };
+		D4DC94411CA288FC002C3A53 /* BIActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIActivityViewController.h; sourceTree = "<group>"; };
+		D4DC94421CA288FC002C3A53 /* BIActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIActivityViewController.m; sourceTree = "<group>"; };
+		D4DC94431CA288FC002C3A53 /* BIAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIAlertViewController.h; sourceTree = "<group>"; };
+		D4DC94441CA288FC002C3A53 /* BIAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIAlertViewController.m; sourceTree = "<group>"; };
+		D4DC94451CA288FC002C3A53 /* BIDimmerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIDimmerViewController.h; sourceTree = "<group>"; };
+		D4DC94461CA288FC002C3A53 /* BIDimmerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIDimmerViewController.m; sourceTree = "<group>"; };
+		D4DC944A1CA2891C002C3A53 /* UIButton+setStateBackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+setStateBackgroundColor.h"; path = "BIImageBrowserViewController/UIButton+setStateBackgroundColor.h"; sourceTree = "<group>"; };
+		D4DC944B1CA2891C002C3A53 /* UIButton+setStateBackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+setStateBackgroundColor.m"; path = "BIImageBrowserViewController/UIButton+setStateBackgroundColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,7 @@
 		D40723811C9FC65000D7E0E4 /* BIImageBrowserViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D4DC944D1CA28B83002C3A53 /* DimmerViewController */,
 				D40723821C9FC66B00D7E0E4 /* BIImageBrowserViewController.h */,
 				D40723831C9FC66B00D7E0E4 /* BIImageBrowserViewController.m */,
 				D40723851C9FC85A00D7E0E4 /* BIImageBrowserTransition.h */,
@@ -125,25 +138,15 @@
 		D497CC381C8939B500C9B1CC /* iCarrouselLayout */ = {
 			isa = PBXGroup;
 			children = (
-				D40723811C9FC65000D7E0E4 /* BIImageBrowserViewController */,
 				D497CC3C1C8939B500C9B1CC /* AppDelegate.h */,
 				D497CC3D1C8939B500C9B1CC /* AppDelegate.m */,
-				45D2A99E1CA16D1700A465C4 /* LatticesTableViewCell.h */,
-				45D2A99F1CA16D1700A465C4 /* LatticesTableViewCell.m */,
 				D497CC3F1C8939B500C9B1CC /* ViewController.h */,
 				D497CC401C8939B500C9B1CC /* ViewController.m */,
-				D497CC531C893A5500C9B1CC /* BIPageControl.h */,
-				D497CC541C893A5500C9B1CC /* BIPageControl.m */,
-				D497CC551C893A5500C9B1CC /* iCarrouselProgressView.h */,
-				D497CC561C893A5500C9B1CC /* iCarrouselProgressView.m */,
-				D497CC571C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.h */,
-				D497CC581C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m */,
-				D497CC591C893A5500C9B1CC /* iCarrouselFlowLayout.h */,
-				D497CC5A1C893A5500C9B1CC /* iCarrouselFlowLayout.m */,
-				D497CC5B1C893A5500C9B1CC /* iCarrouselContainerView.h */,
-				D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */,
-				D497CC5D1C893A5500C9B1CC /* UICollectionViewCell+setData.h */,
-				D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */,
+				D40723811C9FC65000D7E0E4 /* BIImageBrowserViewController */,
+				45D2A99E1CA16D1700A465C4 /* LatticesTableViewCell.h */,
+				45D2A99F1CA16D1700A465C4 /* LatticesTableViewCell.m */,
+				D4DC944E1CA28BA4002C3A53 /* iCarrouselLayout */,
+				D4DC944F1CA28BBA002C3A53 /* Category */,
 				D497CC421C8939B500C9B1CC /* Main.storyboard */,
 				D497CC451C8939B500C9B1CC /* Assets.xcassets */,
 				D497CC471C8939B500C9B1CC /* LaunchScreen.storyboard */,
@@ -159,6 +162,47 @@
 				D497CC3A1C8939B500C9B1CC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4DC944D1CA28B83002C3A53 /* DimmerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D4DC94411CA288FC002C3A53 /* BIActivityViewController.h */,
+				D4DC94421CA288FC002C3A53 /* BIActivityViewController.m */,
+				D4DC94431CA288FC002C3A53 /* BIAlertViewController.h */,
+				D4DC94441CA288FC002C3A53 /* BIAlertViewController.m */,
+				D4DC94451CA288FC002C3A53 /* BIDimmerViewController.h */,
+				D4DC94461CA288FC002C3A53 /* BIDimmerViewController.m */,
+			);
+			name = DimmerViewController;
+			sourceTree = "<group>";
+		};
+		D4DC944E1CA28BA4002C3A53 /* iCarrouselLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D497CC531C893A5500C9B1CC /* BIPageControl.h */,
+				D497CC541C893A5500C9B1CC /* BIPageControl.m */,
+				D497CC551C893A5500C9B1CC /* iCarrouselProgressView.h */,
+				D497CC561C893A5500C9B1CC /* iCarrouselProgressView.m */,
+				D497CC571C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.h */,
+				D497CC581C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m */,
+				D497CC591C893A5500C9B1CC /* iCarrouselFlowLayout.h */,
+				D497CC5A1C893A5500C9B1CC /* iCarrouselFlowLayout.m */,
+				D497CC5B1C893A5500C9B1CC /* iCarrouselContainerView.h */,
+				D497CC5C1C893A5500C9B1CC /* iCarrouselContainerView.m */,
+			);
+			name = iCarrouselLayout;
+			sourceTree = "<group>";
+		};
+		D4DC944F1CA28BBA002C3A53 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D497CC5D1C893A5500C9B1CC /* UICollectionViewCell+setData.h */,
+				D497CC5E1C893A5500C9B1CC /* UICollectionViewCell+setData.m */,
+				D4DC944A1CA2891C002C3A53 /* UIButton+setStateBackgroundColor.h */,
+				D4DC944B1CA2891C002C3A53 /* UIButton+setStateBackgroundColor.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,14 +327,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D40723841C9FC66B00D7E0E4 /* BIImageBrowserViewController.m in Sources */,
+				D4DC944C1CA2891C002C3A53 /* UIButton+setStateBackgroundColor.m in Sources */,
 				D497CC641C893A5500C9B1CC /* UICollectionViewCell+setData.m in Sources */,
 				D4B98BBD1CA150B60064A2B9 /* LatticeLayout.m in Sources */,
 				D497CC411C8939B500C9B1CC /* ViewController.m in Sources */,
+				D4DC94471CA288FC002C3A53 /* BIActivityViewController.m in Sources */,
 				D497CC3E1C8939B500C9B1CC /* AppDelegate.m in Sources */,
 				D497CC3B1C8939B500C9B1CC /* main.m in Sources */,
 				D40723871C9FC85A00D7E0E4 /* BIImageBrowserTransition.m in Sources */,
 				D497CC631C893A5500C9B1CC /* iCarrouselContainerView.m in Sources */,
+				D4DC94481CA288FC002C3A53 /* BIAlertViewController.m in Sources */,
 				D497CC601C893A5500C9B1CC /* iCarrouselProgressView.m in Sources */,
+				D4DC94491CA288FC002C3A53 /* BIDimmerViewController.m in Sources */,
 				D497CC611C893A5500C9B1CC /* iCarrouselSmallItemFlowLayout.m in Sources */,
 				D497CC621C893A5500C9B1CC /* iCarrouselFlowLayout.m in Sources */,
 				D497CC5F1C893A5500C9B1CC /* BIPageControl.m in Sources */,

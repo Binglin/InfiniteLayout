@@ -9,6 +9,7 @@
 #import "BIImageBrowserViewController.h"
 #import "iCarrouselContainerView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "BIAlertViewController.h"
 
 @interface BIImageBrowserViewController ()
 
@@ -27,7 +28,6 @@
         _containerView.cellConfiguration = ^(BIImageBrowserCollectionViewCell * cell, NSIndexPath *indexPath){
             __strong BIImageBrowserViewController *self = _weak_self;
             cell.imageView.contentMode = UIViewContentModeCenter;
-            cell.imageView.backgroundColor = [UIColor yellowColor];
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageArr[indexPath.section]]];
         };
     }
@@ -47,9 +47,12 @@
     doubleTap.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:doubleTap];
 
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-    [tap requireGestureRecognizerToFail:doubleTap];
-    [self.view addGestureRecognizer:tap];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+    [self.view addGestureRecognizer:singleTap];
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
+    [self.view addGestureRecognizer:longPress];
     
     BIImageBrowserLayout *layout = (BIImageBrowserLayout *)self.containerView.layout;
     layout.selectIndexPath = [NSIndexPath indexPathForRow:0 inSection:self.selectIndexPath.row];
@@ -78,14 +81,47 @@
 }
 
 - (void)doubleTaped:(UITapGestureRecognizer *)tap{
-    
-//    NSLog(@"%d",tap.numberOfTapsRequired);
-//    
-//    return;
-    
     NSIndexPath *indexPath = [self.containerView.collectionView indexPathForItemAtPoint:[tap locationInView:self.containerView]];
     BIImageBrowserCollectionViewCell *cell = (BIImageBrowserCollectionViewCell *)[self.containerView.collectionView cellForItemAtIndexPath:indexPath];
     [cell animateScaleImage];
+}
+
+- (void)longPressed:(UILongPressGestureRecognizer *)press{
+    if (press.state == UIGestureRecognizerStateBegan) {
+        NSIndexPath *indexPath = [self.containerView.collectionView indexPathForItemAtPoint:[press locationInView:self.containerView.collectionView]];
+        BIImageBrowserCollectionViewCell *cell = (BIImageBrowserCollectionViewCell *)[self.containerView.collectionView cellForItemAtIndexPath:indexPath];
+        [self saveImage:cell.imageView.image];
+        
+        if (cell.imageView.image) {
+            
+            BIAlertViewController *alert = [BIAlertViewController new];
+            
+            BIAlertAction *saveAction = [BIAlertAction actionWithTitle:@"保存图片" action:^{
+                [self saveImage:cell.imageView.image];
+            }];
+            
+            BIAlertAction *cancel = [BIAlertAction actionWithTitle:@"取消" action:nil];
+            
+            /*[alert addAction:shareImageAction];*/
+            [alert addAction:saveAction];
+            [alert addAction:cancel];
+            [alert showFromView:[UIApplication sharedApplication].keyWindow];
+        }
+    }
+}
+
+- (void)saveImage:(UIImage *)image{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    });
+}
+
+- (void)saveImageSuceed{
+    //[[HUDSinglaton shareSinglaton] showHUDThenHideWithText:@"已保存至系统相册" andView:[UIApplication sharedApplication].keyWindow];
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    [self saveImageSuceed];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,19 +171,6 @@
 
 @implementation BIImageBrowserContainerView
 
-//- (instancetype)initWithFrame:(CGRect)frame{
-//    if (self = [super initWithFrame:frame]) {
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTaped:)];
-//        tap.numberOfTapsRequired = 2;
-//        [self addGestureRecognizer:tap];
-//    }
-//    return self;
-//}
-//
-//- (void)doubleTaped:(UITapGestureRecognizer *)tap{
-//    
-//}
-
 - (void)initFlowLayout{
     BIImageBrowserLayout *layout = [BIImageBrowserLayout new];
     layout.itemSize = [UIScreen mainScreen].bounds.size;
@@ -182,8 +205,6 @@
         
         self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
         [self.scaleView addSubview:self.imageView];
-        
-        self.contentView.backgroundColor = [UIColor orangeColor];
         
     }
     return self;

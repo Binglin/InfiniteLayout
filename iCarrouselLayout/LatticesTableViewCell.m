@@ -38,7 +38,6 @@
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self.contentView addSubview:self.collectionView];
-        self.contentView.backgroundColor = [UIColor redColor];
     }
     return self;
 }

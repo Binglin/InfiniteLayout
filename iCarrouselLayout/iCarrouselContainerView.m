@@ -53,7 +53,7 @@ const CGFloat default_scroll_interval = 3.0f;
         [self registerCollectionCells];
 
         self.pageStyle = iCarrouselPageStylePageControl;
-        self.backgroundColor = [UIColor lightGrayColor];
+//        self.backgroundColor = [UIColor lightGrayColor];
         
         self.carrouselInterval = default_scroll_interval;
 //        self.autoCarrousel = YES;
